@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liuxn.yuzhong.project.os.mapper.SeedlingCollectMapper">
+    
+    <resultMap type="SeedlingCollect" id="SeedlingCollectResult">
+        <result property="id"    column="id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="seedlingId"    column="seedling_id"    />
+        <result property="level"    column="level"    />
+        <result property="createTime"    column="create_time"    />
+    </resultMap>
+
+	<resultMap type="SeedlingCollectVo" id="SeedlingCollectVoResult">
+        <result property="id"    column="id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="seedlingId"    column="seedling_id"    />
+        <result property="level"    column="level"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="userName"    column="user_name"    />
+        <result property="codeOne"    column="seedling_code_one"    />
+        <result property="codeTwo"    column="seedling_code_two"    />
+        <result property="seedlingCode"    column="seedling_code"    />
+        <result property="germplasmName"    column="germplasm_name"    />
+    </resultMap>
+	<select id="quertList" resultMap="SeedlingCollectVoResult">
+		SELECT
+			seedlingCollect.*,
+			user.user_name as user_name,
+			seedling.code_one as seedling_code_one,
+			seedling.code_two as seedling_code_two,
+			seedling.code as seedling_code,
+			germplasm.name as germplasm_name
+		FROM
+			os_seedling_collect as seedlingCollect, sys_user as user, os_seedling as seedling, os_germplasm as germplasm
+		WHERE
+			seedlingCollect.user_id = user.user_id AND seedlingCollect.seedling_id = seedling.id AND seedling.germplasm_id = germplasm.id
+			<if test="userId != null">
+				<![CDATA[ AND seedlingCollect.user_id = #{userId}]]>
+			</if>
+			<if test="germplasmId != null">
+				<![CDATA[ AND seedling.germplasm_id = #{germplasmId}]]>
+			</if>
+			<if test="seedlingCode != null and seedlingCode != ''">
+				<![CDATA[ AND seedling.code like CONCAT('%',#{seedlingCode},'%')]]>
+			</if>
+		ORDER BY 
+			<choose>
+				<when test="orderAttr == 'codeTwo'">
+					<![CDATA[ seedling.code_two ]]>
+				</when>
+				<when test="orderAttr == 'germplasmName'">
+					<![CDATA[ germplasm.name ]]>
+				</when>
+				<otherwise>
+					<![CDATA[ seedlingCollect.id ]]>
+				</otherwise>
+			</choose>
+			<choose>
+				<when test="orderType == 'descending'">
+					<![CDATA[ DESC ]]>
+				</when>
+				<when test="orderType == 'ascending'">
+					<![CDATA[ ASC ]]>
+				</when>
+				<otherwise>
+					<![CDATA[ DESC ]]>
+				</otherwise>
+			</choose>
+	</select>
+</mapper>

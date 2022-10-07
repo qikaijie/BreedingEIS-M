@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liuxn.yuzhong.project.os.mapper.AttributeGroupMapper">
+    
+    <resultMap type="AttributeGroup" id="AttributeGroupResult">
+        <result property="id"    column="id"    />
+        <result property="speciesId" column="species_id"/>
+        <result property="name"    column="name"    />
+        <result property="sort"    column="sort"    />
+        <result property="isHidden"    column="is_hidden"    />
+        <result property="createById"    column="create_by_id"    />
+        <result property="createByName"    column="create_by_name"    />
+        <result property="createTime"    column="create_time"    />
+    </resultMap>
+
+    <resultMap type="com.liuxn.yuzhong.project.os.domain.AttributeGroupVo" id="AttributeGroupVo">
+        <result property="id"    column="id"    />
+        <result property="speciesId" column="species_id"/>
+        <result property="name"    column="name"    />
+        <result property="sort"    column="sort"    />
+        <result property="isHidden"    column="is_hidden"    />
+        <result property="createById"    column="create_by_id"    />
+        <result property="createByName"    column="create_by_name"    />
+        <result property="createTime"    column="create_time"    />
+        <association property="attributeList" column="id" select="com.liuxn.yuzhong.project.os.mapper.AttributeMapper.queryAttributeExistentByGroupId"></association>
+    </resultMap>
+    
+    <select id="queryList" parameterType="AttributeGroup" resultMap="AttributeGroupResult">
+    	SELECT 
+			g.*
+		FROM
+			os_attribute_group AS g left join sys_user u on u.user_id = g.create_by_id left join sys_dept d on u.dept_id = d.dept_id
+		WHERE
+			1=1
+			<if test="name != null and name != ''">
+				<![CDATA[ AND g.name LIKE CONCAT('%', #{name}, '%')]]>
+			</if>
+			<if test="speciesId != null and speciesId != ''">
+				<![CDATA[ AND g.species_id = #{speciesId}]]>
+			</if>
+		<!-- 数据范围过滤 -->
+		${dataScope}
+		ORDER BY g.sort ASC
+    </select>
+	
+	<select id="queryAttributeGroupVoBySpeciesId" resultMap="AttributeGroupVo">
+		SELECT 
+			id,
+			species_id,
+			name,
+			sort,
+			create_by_id,
+			create_by_name,
+			create_time
+		FROM
+			os_attribute_group
+		WHERE
+			species_id = #{speciesId} 
+			AND create_by_id in
+			<foreach item="ids" collection="userIds" open="(" separator="," close=")">
+				#{ids}
+			</foreach>
+			AND is_hidden = 0
+		ORDER BY sort ASC
+	</select>
+	<select id="getAttributeGroupVoById" resultMap="AttributeGroupVo">
+		SELECT 
+			id,
+			species_id,
+			name,
+			sort,
+			create_by_id,
+			create_by_name,
+			create_time
+		FROM
+			os_attribute_group
+		WHERE
+			id = #{id} 
+		ORDER BY sort ASC
+	</select>
+	<select id="queryAttributeGroupByAttributeId" parameterType="java.lang.Long" resultMap="AttributeGroupResult">
+		SELECT 
+			g.id,
+			g.species_id,
+			g.name,
+			g.sort,
+			g.create_by_id,
+			g.create_by_name,
+			g.create_time
+		FROM
+			os_attribute_group as g, os_attribute_group_relation as relation
+		WHERE 
+			g.id = relation.group_id AND relation.attribute_id = #{attributeId}
+		ORDER BY g.sort ASC
+	</select>
+</mapper>

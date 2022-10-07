@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liuxn.yuzhong.project.os.mapper.SeedlingRecordMapper">
+    
+    <resultMap type="SeedlingRecord" id="SeedlingRecordResult">
+        <result property="id"    column="id"    />
+        <result property="parentId"    column="parent_id"    />
+        <result property="germplasmId"    column="germplasm_id"    />
+        <result property="seedlingId"    column="seedling_id"    />
+        <result property="type"    column="type"    />
+        <result property="attributeValues"    column="attribute_values"    />
+        <result property="enterMethod"    column="enter_method"    />
+        <result property="createYear"    column="create_year"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="createById"    column="create_by_id"    />
+        <result property="createByName"    column="create_by_name"    />
+    </resultMap>
+	<resultMap type="SeedlingRecordListVo" id="SeedlingRecordListVoResult">
+        <result property="id"    column="id"    />
+        <result property="parentId"    column="parent_id"    />
+        <result property="germplasmId"    column="germplasm_id"    />
+        <result property="seedlingId"    column="seedling_id"    />
+        <result property="type"    column="type"    />
+        <result property="attributeValues"    column="attribute_values"    />
+        <result property="enterMethod"    column="enter_method"    />
+        <result property="createYear"    column="create_year"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="createById"    column="create_by_id"    />
+        <result property="createByName"    column="create_by_name"    />
+        <result property="germplasmName"    column="germplasm_name"    />
+        <result property="seedlingCode"    column="seedling_code"    />
+        <result property="seedlingCodeOne"    column="seedling_code_one"    />
+        <result property="seedlingCodeTwo"    column="seedling_code_two"    />
+    </resultMap>
+
+	<select id="queryListByUserId" parameterType="map" resultMap="SeedlingRecordListVoResult">
+		SELECT
+			record.*,
+			germplasm.name as germplasm_name,
+			seedling.code as seedling_code,
+			seedling.code_one as seedling_code_one,
+			seedling.code_two as seedling_code_two
+		FROM
+			os_seedling_record as record, os_germplasm as germplasm, os_seedling as seedling
+		WHERE
+			record.germplasm_id = germplasm.id AND record.seedling_id = seedling.id AND record.create_by_id = #{userId}
+			<if test="germplasmId != null">
+				<![CDATA[ AND record.germplasm_id = #{germplasmId}]]>
+			</if>
+			<if test="seedlingId != null">
+				<![CDATA[ AND record.seedling_id = #{seedlingId}]]>
+			</if>
+			<if test="startTime != null">
+				<![CDATA[ AND record.create_time >= #{startTime}]]>
+			</if>
+			<if test="endTime != null">
+				<![CDATA[ AND record.create_time <= #{endTime}]]>
+			</if>
+		ORDER BY record.id DESC
+	</select>
+	<select id="historyList" parameterType="map" resultMap="SeedlingRecordListVoResult">
+		SELECT
+			record.*,
+			germplasm.name as germplasm_name,
+			seedling.code as seedling_code,
+			seedling.code_one as seedling_code_one,
+			seedling.code_two as seedling_code_two
+		FROM
+			os_seedling_record as record, os_germplasm as germplasm, os_seedling as seedling
+		WHERE
+			record.germplasm_id = germplasm.id AND record.seedling_id = seedling.id
+			<if test="type == 2 or type == 3">
+				<![CDATA[ AND seedling.parent_id = #{seedlingId} AND seedling.type = #{type}]]>
+			</if>
+			<if test="type == 1">
+				<![CDATA[ AND seedling.id = #{seedlingId} AND seedling.type = #{type}]]>
+			</if>
+	</select>
+	<select id="queryList" parameterType="SeedlingRecord" resultMap="SeedlingRecordListVoResult">
+		SELECT
+			record.*,
+			germplasm.name as germplasm_name,
+			seedling.code as seedling_code,
+			seedling.code_one as seedling_code_one,
+			seedling.code_two as seedling_code_two
+		FROM
+			os_seedling_record as record left join sys_user u on u.user_id = record.create_by_id left join sys_dept d on u.dept_id = d.dept_id, 
+			os_germplasm as germplasm, os_seedling as seedling
+		WHERE
+			record.germplasm_id = germplasm.id AND record.seedling_id = seedling.id 
+			<if test="germplasmId != null and germplasmId != ''">
+				<![CDATA[ AND record.germplasm_id = #{germplasmId}]]>
+			</if>
+			<if test="seedlingId != null and seedlingId != ''">
+				<![CDATA[ AND record.seedling_id = #{seedlingId}]]>
+			</if>
+			<if test="startTime != null">
+				<![CDATA[ AND record.create_time >= #{startTime}]]>
+			</if>
+			<if test="endTime != null">
+				<![CDATA[ AND record.create_time <= #{endTime}]]>
+			</if>
+		<!-- 数据范围过滤 -->
+		${dataScope}
+		ORDER BY record.id DESC
+	</select>
+
+</mapper>

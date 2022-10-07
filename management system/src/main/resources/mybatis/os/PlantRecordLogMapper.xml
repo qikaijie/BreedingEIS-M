@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liuxn.yuzhong.project.os.mapper.PlantRecordLogMapper">
+    
+    <resultMap type="PlantRecordLog" id="PlantRecordLogResult">
+        <result property="id"    column="id"    />
+        <result property="recordId"    column="record_id"    />
+        <result property="hybridId"    column="hybrid_id"    />
+        <result property="plantParentId" column="plant_parent_id"/>
+        <result property="plantId"    column="plant_id"    />
+        <result property="plantType" column="plant_type"/>
+        <result property="attributeId"    column="attribute_id"    />
+        <result property="attributeName"    column="attribute_name"    />
+        <result property="attributeValue"    column="attribute_value"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="createYear"    column="create_year"    />
+    </resultMap>
+
+	<select id="queryPlantRecordAttribute" resultType="Attribute" parameterType="map">
+		SELECT 
+			attribute_id as id, 
+			attribute_name as fieldName 
+		FROM 
+			os_plant_record_log 
+		WHERE 
+			1=1
+			<if test="hybridId != null">
+				<![CDATA[ AND hybrid_id = #{hybridId}]]>
+			</if>
+			<if test="plantId != null">
+				<![CDATA[ AND plant_id = #{plantId}]]>
+			</if>
+		GROUP BY attribute_id, attribute_name
+	</select>
+	
+	<select id="queryPlantRecordYear" resultType="string" parameterType="long">
+		SELECT 
+			create_year
+		FROM 
+			os_plant_record_log 
+		WHERE 
+			1=1
+			<if test="hybridId != null">
+				<![CDATA[ AND hybrid_id = #{hybridId}]]>
+			</if>
+			<if test="plantId != null">
+				<![CDATA[ AND plant_id = #{plantId}]]>
+			</if>
+		GROUP BY create_year
+	</select>
+	
+	<select id="getAttributeLastLog" resultType="PlantRecordLog" parameterType="map">
+		SELECT 
+			*
+		FROM 
+			os_plant_record_log 
+		WHERE 
+			plant_id = #{plantId} AND attribute_id = #{attributeId}
+		ORDER BY id DESC LIMIT 1
+	</select>
+
+</mapper>

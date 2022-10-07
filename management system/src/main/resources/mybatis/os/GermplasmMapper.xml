@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liuxn.yuzhong.project.os.mapper.GermplasmMapper">
+    
+    <resultMap type="Germplasm" id="GermplasmResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="alias"    column="alias"    />
+        <result property="code"    column="code"    />
+        <result property="source"    column="source"    />
+        <result property="type"    column="type"    />
+        <result property="typeRemark"    column="type_remark"    />
+        <result property="sourceArea"    column="source_area"    />
+        <result property="firstIntroducer"    column="first_introducer"    />
+        <result property="firstIntroducerPhone"    column="first_introducer_phone"    />
+        <result property="introducer"    column="introducer"    />
+        <result property="introducerPhone"    column="introducer_phone"    />
+        <result property="introductionYear" column="introduction_year"/>
+        <result property="introductionMethod"    column="introduction_method"    />
+        <result property="libName"    column="lib_name"    />
+        <result property="saveMethod"    column="save_method"    />
+        <result property="describe"    column="describe"    />
+        <result property="application"    column="application"    />
+        <result property="status"    column="status"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createById"    column="create_by_id"    />
+        <result property="createDate"    column="create_date"    />
+        <result property="amount"    column="amount"    />
+        <result property="isProtect"    column="is_protect"    />
+    </resultMap>
+	
+	<select id="queryList" parameterType="Germplasm" resultMap="GermplasmResult">
+		SELECT 
+			germplasm.*
+		FROM
+			os_germplasm AS germplasm left join sys_user u on u.user_id = germplasm.create_by_id left join sys_dept d on u.dept_id = d.dept_id
+		WHERE
+			germplasm.del_flag = 0
+			<if test="name != null and name != ''">
+				<![CDATA[ AND germplasm.name LIKE CONCAT('%', #{name}, '%')]]>
+			</if>
+			<if test="source != null  and source !=''">
+				<![CDATA[ AND germplasm.source = #{source}]]>
+			</if>
+			<if test="introductionYear != null and introductionYear !=''">
+				<![CDATA[ AND germplasm.introduction_year = #{introductionYear}]]>
+			</if>
+		<!-- 数据范围过滤 -->
+		${dataScope}
+		ORDER BY germplasm.id DESC
+	</select>
+	<update id="removeByIds">
+			UPDATE
+				os_germplasm
+			SET
+				del_flag = 2
+			<where>
+				<!-- foreach:循环语句，通常多用于参数是集合时，需要对参数进行遍历出来，再进行赋值查询
+					collection:参数类型中的集合、数组的名字，例：下面的ids就是QueryVo这个类中的list集合的名字
+					item:为遍历该集合起一个变量名，遍历出来的每一个字，都赋值到这个item中
+					open:在sql语句前面添加的sql片段
+					close:在sql语句后面添加的sql片段
+					separator:指定遍历元素之前用什么分隔符
+				 -->
+				<foreach collection="ids" item="id" open="id in(" close=")" separator=",">
+					#{id}
+				</foreach>
+			</where>
+	</update>
+</mapper>

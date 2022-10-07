@@ -1,0 +1,2 @@
+Application Version: ${yuzhong.version}
+Spring Boot Version: ${spring-boot.version}

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liuxn.yuzhong.project.os.mapper.PlantCollectMapper">
+    
+    <resultMap type="PlantCollect" id="CollectResult">
+        <result property="id"    column="id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="plantId"    column="plant_id"    />
+        <result property="level" column="level"/>
+        <result property="createTime"    column="create_time"    />
+    </resultMap>
+    
+    <resultMap type="PlantCollectVo" id="CollectVoResult">
+        <result property="id"    column="id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="plantId"    column="plant_id"    />
+        <result property="level" column="level"/>
+        <result property="createTime"    column="create_time"    />
+        <result property="userName"    column="user_name"    />
+        <result property="codeOne"    column="plant_code_one"    />
+        <result property="codeTwo"    column="plant_code_two"    />
+        <result property="plantCode"    column="plant_code"    />
+        <result property="hybridYear"    column="hybrid_year"    />
+        <result property="hybridName"    column="hybrid_name"    />
+    </resultMap>
+
+	<select id="querList" resultMap="CollectVoResult">
+		SELECT
+			collect.*,
+			user.user_name as user_name,
+			plant.code_one as plant_code_one,
+			plant.code_two as plant_code_two,
+			plant.code as plant_code,
+			hybrid.hybrid_year as hybrid_year,
+			hybrid.name as hybrid_name
+		FROM
+			os_plant_collect as collect, sys_user as user, os_plant as plant, os_hybrid as hybrid
+		WHERE
+			collect.user_id = user.user_id AND collect.plant_id = plant.id AND plant.hybrid_id = hybrid.id
+			<if test="userId != null">
+				<![CDATA[ AND collect.user_id = #{userId}]]>
+			</if>
+			<if test="hybridId != null">
+				<![CDATA[ AND plant.hybrid_id = #{hybridId}]]>
+			</if>
+			<if test="plantCode != null and plantCode != ''">
+				<![CDATA[ AND plant.code like CONCAT('%',#{plantCode},'%')]]>
+			</if>
+			ORDER BY 
+			<choose>
+				<when test="orderAttr == 'codeTwo'">
+					<![CDATA[ plant.code_two ]]>
+				</when>
+				<when test="orderAttr == 'hybridName'">
+					<![CDATA[ hybrid.name ]]>
+				</when>
+				<otherwise>
+					<![CDATA[ collect.id ]]>
+				</otherwise>
+			</choose>
+			<choose>
+				<when test="orderType == 'descending'">
+					<![CDATA[ DESC ]]>
+				</when>
+				<when test="orderType == 'ascending'">
+					<![CDATA[ ASC ]]>
+				</when>
+				<otherwise>
+					<![CDATA[ DESC ]]>
+				</otherwise>
+			</choose>
+	</select>
+</mapper>

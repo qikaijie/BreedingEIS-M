@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liuxn.yuzhong.project.os.mapper.AttributeMapper">
+    
+    <resultMap type="Attribute" id="AttributeResult">
+        <result property="id"    column="id"    />
+        <result property="speciesId" column="species_id"/>
+        <result property="fieldType"    column="field_type"    />
+        <result property="fieldCode"    column="field_code"    />
+        <result property="fieldName"    column="field_name"    />
+        <result property="fieldContent"    column="field_content"    />
+        <result property="sort"    column="sort"    />
+        <result property="createById"    column="create_by_id"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="createByName"    column="create_by_name"    />
+    </resultMap>
+    <resultMap type="AttributeVo" id="AttributeVoResult">
+        <result property="id"    column="id"    />
+        <result property="speciesId" column="species_id"/>
+        <result property="fieldType"    column="field_type"    />
+        <result property="fieldCode"    column="field_code"    />
+        <result property="fieldName"    column="field_name"    />
+        <result property="fieldContent"    column="field_content"    />
+        <result property="sort"    column="sort"    />
+        <result property="createById"    column="create_by_id"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="createByName"    column="create_by_name"    />
+        <result property="attributeGroupRelationId" column="attributeGroupRelation_id"/>
+        <association property="attributeGroupsList" column="id" select="com.liuxn.yuzhong.project.os.mapper.AttributeGroupMapper.queryAttributeGroupByAttributeId"></association>
+    </resultMap>
+    
+    <resultMap type="AttributeSortVo" id="AttributeSortResult">
+        <result property="id"    column="id"    />
+        <result property="speciesId" column="species_id"/>
+        <result property="fieldType"    column="field_type"    />
+        <result property="fieldCode"    column="field_code"    />
+        <result property="fieldName"    column="field_name"    />
+        <result property="fieldContent"    column="field_content"    />
+        <result property="sort"    column="sort"    />
+        <result property="createById"    column="create_by_id"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="createByName"    column="create_by_name"    />
+        <result property="attributeGroupRelationId" column="attributeGroupRelation_id"/>
+    </resultMap>
+    
+
+	<select id="queryList" parameterType="java.lang.Long" resultMap="AttributeVoResult">
+		SELECT 
+			os_attribute.id,
+			os_attribute.species_id,
+			os_attribute.field_type,
+			os_attribute.field_code,
+			os_attribute.field_name,
+			os_attribute.field_content,
+			os_attribute.sort,
+			os_attribute.create_by_id,
+			os_attribute.create_time,
+			os_attribute.create_by_name
+		FROM
+			os_attribute 
+		WHERE
+			1=1
+			<if test="speciesId != null">
+				<![CDATA[ AND os_attribute.species_id = #{speciesId}]]>
+			</if>
+			<if test="fieldName != null">
+				<![CDATA[ AND os_attribute.field_name LIKE CONCAT('%',#{fieldName},'%')]]>
+			</if>
+		ORDER BY os_attribute.sort
+	</select>
+	
+	<select id="queryAttributeExistentByGroupId" parameterType="java.lang.Long" resultMap="AttributeResult">
+		SELECT 
+			os_attribute.id,
+			os_attribute.species_id,
+			os_attribute.field_type,
+			os_attribute.field_code,
+			os_attribute.field_name,
+			os_attribute.field_content,
+			os_attribute.sort,
+			os_attribute.create_by_id,
+			os_attribute.create_time,
+			os_attribute.create_by_name
+		FROM
+			os_attribute_group_relation, os_attribute 
+		WHERE 
+			os_attribute_group_relation.group_id = #{groupId}
+			AND 
+			os_attribute.id = os_attribute_group_relation.attribute_id
+		ORDER BY os_attribute_group_relation.sort
+	</select>
+	
+	<select id="queryAttributeSortByGroupId" parameterType="java.lang.Long" resultMap="AttributeSortResult">
+		SELECT 
+			os_attribute.id,
+			os_attribute.species_id,
+			os_attribute.field_type,
+			os_attribute.field_code,
+			os_attribute.field_name,
+			os_attribute.field_content,
+			os_attribute.sort,
+			os_attribute.create_by_id,
+			os_attribute.create_time,
+			os_attribute.create_by_name,
+			os_attribute_group_relation.id as attributeGroupRelation_id
+		FROM
+			os_attribute_group_relation, os_attribute 
+		WHERE 
+			os_attribute_group_relation.group_id = #{groupId}
+			AND 
+			os_attribute.id = os_attribute_group_relation.attribute_id
+		ORDER BY os_attribute_group_relation.sort
+	</select>
+</mapper>

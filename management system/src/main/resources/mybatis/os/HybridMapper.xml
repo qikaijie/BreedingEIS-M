@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liuxn.yuzhong.project.os.mapper.HybridMapper">
+    
+    <resultMap type="Hybrid" id="HybridResult">
+        <result property="id"    column="id"    />
+        <result property="name" column="name"/>
+        <result property="maleParent"    column="male_parent"    />
+        <result property="maleParentSource"    column="male_parent_source"    />
+        <result property="femaleParent"    column="female_parent"    />
+        <result property="femaleParentSource"    column="female_parent_source"    />
+        <result property="hybridYear"    column="hybrid_year"    />
+        <result property="hybridDate"    column="hybrid_date"    />
+        <result property="operator"    column="operator"    />
+        <result property="caiguoDate"    column="caiguo_date"    />
+        <result property="seedNums"    column="seed_nums"    />
+        <result property="seedStratificationDate"    column="seed_stratification_date"    />
+        <result property="quzhongDate"    column="quzhong_date"    />
+        <result property="sowingDate"    column="sowing_date"    />
+        <result property="sowingCode"    column="sowing_code"    />
+        <result property="sowingMethod"    column="sowing_method"    />
+        <result property="colonizationMode"    column="colonization_mode"    />
+        <result property="colonizationPlace"    column="colonization_place"    />
+        <result property="colonizationDate"    column="colonization_date"    />
+        <result property="colonizationTotal"    column="colonization_total"    />
+        <result property="colonizationHead"    column="colonization_head"    />
+        <result property="colonizationPhone"    column="colonization_phone"    />
+        <result property="remark"    column="remark"    />
+        <result property="delFlag" column="del_flag"/>
+        <result property="createById"    column="create_by_id"    />
+        <result property="createByName"    column="create_by_name"    />
+        <result property="createTime"    column="create_time"    />
+    </resultMap>
+
+	<select id="queryList" parameterType="Hybrid" resultMap="HybridResult">
+		SELECT 
+			hybrid.*
+		FROM
+			os_hybrid AS hybrid left join sys_user u on u.user_id = hybrid.create_by_id left join sys_dept d on u.dept_id = d.dept_id
+		WHERE
+			hybrid.del_flag = 0
+			<if test="maleParent != null and maleParent != ''">
+				<![CDATA[ AND hybrid.male_parent LIKE CONCAT('%', #{maleParent}, '%')]]>
+			</if>
+			<if test="femaleParent != null and femaleParent != ''">
+				<![CDATA[ AND hybrid.female_parent LIKE CONCAT('%', #{femaleParent}, '%')]]>
+			</if>
+			<if test="hybridYear != null and hybridYear != ''">
+				<![CDATA[ AND hybrid.hybrid_year = #{hybridYear}]]>
+			</if>
+		<!-- 数据范围过滤 -->
+		${dataScope}
+		ORDER BY hybrid.id DESC
+	</select>
+	<update id="removeByIds">
+			UPDATE
+				os_hybrid
+			SET
+				del_flag = 2
+			<where>
+				<!-- foreach:循环语句，通常多用于参数是集合时，需要对参数进行遍历出来，再进行赋值查询
+					collection:参数类型中的集合、数组的名字，例：下面的ids就是QueryVo这个类中的list集合的名字
+					item:为遍历该集合起一个变量名，遍历出来的每一个字，都赋值到这个item中
+					open:在sql语句前面添加的sql片段
+					close:在sql语句后面添加的sql片段
+					separator:指定遍历元素之前用什么分隔符
+				 -->
+				<foreach collection="ids" item="id" open="id in(" close=")" separator=",">
+					#{id}
+				</foreach>
+			</where>
+	</update>
+</mapper>

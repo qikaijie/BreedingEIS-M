@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liuxn.yuzhong.project.os.mapper.SeedlingMapper">
+    
+    <resultMap type="Seedling" id="SeedlingResult">
+        <result property="id"    column="id"    />
+        <result property="parentId"    column="parent_id"    />
+        <result property="germplasmId"    column="germplasm_id"    />
+        <result property="type"    column="type"    />
+        <result property="sowingCode"    column="sowing_code"    />
+        <result property="seedlingBase"    column="seedling_base"    />
+        <result property="seedlingArea"    column="seedling_area"    />
+        <result property="seedlingRidge"    column="seedling_ridge"    />
+        <result property="seedlingRow"    column="seedling_row"    />
+        <result property="seedlingNumber"    column="seedling_number"    />
+        <result property="codeOne"    column="code_one"    />
+        <result property="fieldNumber"    column="field_number"    />
+        <result property="number"    column="number"    />
+        <result property="codeTwo"    column="code_two"    />
+        <result property="code"    column="code"    />
+        <result property="delFlag" column="del_flag"/>
+        <result property="createById"    column="create_by_id"    />
+        <result property="createByName"    column="create_by_name"    />
+        <result property="createTime"    column="create_time"    />
+    </resultMap>
+
+	<select id="queryList" parameterType="Seedling" resultMap="SeedlingResult">
+		SELECT 
+			seedling.*
+		FROM
+			os_seedling AS seedling left join sys_user u on u.user_id = seedling.create_by_id left join sys_dept d on u.dept_id = d.dept_id
+		WHERE
+			seedling.del_flag = 0 
+			<if test="parentId != null and parentId != ''">
+				<![CDATA[ AND seedling.parent_id = #{parentId}]]>
+			</if>
+			<if test="germplasmId != null and germplasmId != ''">
+				<![CDATA[ AND seedling.germplasm_id = #{germplasmId}]]>
+			</if>
+			<if test="type != null and type != ''">
+				<![CDATA[ AND seedling.type = #{type}]]>
+			</if>
+			<if test="code != null and code != ''">
+				<![CDATA[ AND seedling.code LIKE CONCAT('%', #{code}, '%')]]>
+			</if>
+		<!-- 数据范围过滤 -->
+		${dataScope}
+		ORDER BY seedling.id DESC
+	</select>
+	<update id="removeByIds">
+			UPDATE
+				os_seedling
+			SET
+				del_flag = 2
+			<where>
+				<!-- foreach:循环语句，通常多用于参数是集合时，需要对参数进行遍历出来，再进行赋值查询
+					collection:参数类型中的集合、数组的名字，例：下面的ids就是QueryVo这个类中的list集合的名字
+					item:为遍历该集合起一个变量名，遍历出来的每一个字，都赋值到这个item中
+					open:在sql语句前面添加的sql片段
+					close:在sql语句后面添加的sql片段
+					separator:指定遍历元素之前用什么分隔符
+				 -->
+				<foreach collection="ids" item="id" open="id in(" close=")" separator=",">
+					#{id}
+				</foreach>
+			</where>
+	</update>
+	<select id="getMaxNumber" parameterType="string" resultType="long">
+		SELECT
+		    number
+		FROM
+			os_seedling
+		WHERE
+			field_number = #{fieldNumber}
+		ORDER BY number DESC
+		LIMIT 1
+	</select>
+</mapper>

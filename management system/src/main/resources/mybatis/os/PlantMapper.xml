@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liuxn.yuzhong.project.os.mapper.PlantMapper">
+    
+    <resultMap type="Plant" id="PlantResult">
+        <result property="id"    column="id"    />
+        <result property="parentId" column="parent_id"/>
+        <result property="hybridId"    column="hybrid_id"    />
+        <result property="type" column="type"/>
+        <result property="sowingCode"    column="sowing_code"    />
+        <result property="plantBase"    column="plant_base"    />
+        <result property="plantArea"    column="plant_area"    />
+        <result property="plantRidge"    column="plant_ridge"    />
+        <result property="plantRow"    column="plant_row"    />
+        <result property="plantNumber"    column="plant_number"    />
+        <result property="codeOne"    column="code_one"    />
+        <result property="fieldNumber"    column="field_number"    />
+        <result property="number"    column="number"    />
+        <result property="codeTwo"    column="code_two"    />
+        <result property="code"    column="code"    />
+        <result property="gaojieNum"    column="gaojie_num"    />
+        <result property="delFlag" column="del_flag"/>
+        <result property="createById"    column="create_by_id"    />
+        <result property="createByName"    column="create_by_name"    />
+        <result property="createTime"    column="create_time"    />
+    </resultMap>
+
+	<select id="queryList" parameterType="Plant" resultMap="PlantResult">
+		SELECT 
+			plant.*
+		FROM
+			os_plant AS plant left join sys_user u on u.user_id = plant.create_by_id left join sys_dept d on u.dept_id = d.dept_id
+		WHERE
+			plant.del_flag = 0 
+			<if test="hybridId != null and hybridId != ''">
+				<![CDATA[ AND plant.hybrid_id = #{hybridId}]]>
+			</if>
+			<if test="parentId != null and parentId != ''">
+				<![CDATA[ AND plant.parent_id = #{parentId}]]>
+			</if>
+			<if test="type != null and type != ''">
+				<![CDATA[ AND plant.type = #{type}]]>
+			</if>
+			<if test="code != null and code !=''">
+				<![CDATA[ AND plant.code LIKE CONCAT('%', #{code}, '%')]]>
+			</if>
+		<!-- 数据范围过滤 -->
+		${dataScope}
+		ORDER BY plant.number DESC, plant.create_time DESC
+	</select>
+	<update id="removeByIds">
+			UPDATE
+				os_plant
+			SET
+				del_flag = 2
+			<where>
+				<!-- foreach:循环语句，通常多用于参数是集合时，需要对参数进行遍历出来，再进行赋值查询
+					collection:参数类型中的集合、数组的名字，例：下面的ids就是QueryVo这个类中的list集合的名字
+					item:为遍历该集合起一个变量名，遍历出来的每一个字，都赋值到这个item中
+					open:在sql语句前面添加的sql片段
+					close:在sql语句后面添加的sql片段
+					separator:指定遍历元素之前用什么分隔符
+				 -->
+				<foreach collection="ids" item="id" open="id in(" close=")" separator=",">
+					#{id}
+				</foreach>
+			</where>
+	</update>
+	<select id="getMaxNumber" parameterType="string" resultType="long">
+		SELECT
+		    number
+		FROM
+			os_plant
+		WHERE
+			field_number = #{fieldNumber}
+		ORDER BY number DESC
+		LIMIT 1
+	</select>
+	<select id="getMaxGaojieNumber" parameterType="long" resultType="long">
+		SELECT
+		    gaojie_num
+		FROM
+			os_plant
+		WHERE
+			parent_id = #{parentId}
+		ORDER BY gaojie_num DESC
+		LIMIT 1
+	</select>
+</mapper>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liuxn.yuzhong.project.os.mapper.PlantRecordMapper">
+    
+    <resultMap type="PlantRecord" id="PlantRecordResult">
+        <result property="id"    column="id"    />
+        <result property="hybridId"    column="hybrid_id"    />
+        <result property="plantParentId" column="plant_parent_id"/>
+        <result property="plantId"    column="plant_id"    />
+        <result property="plantType" column="plant_type"/>
+        <result property="attributeValues"    column="attribute_values"    />
+        <result property="enterMethod"    column="enter_method"    />
+        <result property="createYear"    column="create_year"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="createById"    column="create_by_id"    />
+        <result property="createByName"    column="create_by_name"    />
+    </resultMap>
+    <resultMap type="PlantRecordListVo" id="PlantRecordListVoResult">
+        <result property="id"    column="id"    />
+        <result property="hybridId"    column="hybrid_id"    />
+        <result property="plantParentId" column="plant_parent_id"/>
+        <result property="plantId"    column="plant_id"    />
+        <result property="plantType" column="plant_type"/>
+        <result property="attributeValues"    column="attribute_values"    />
+        <result property="enterMethod"    column="enter_method"    />
+        <result property="createYear"    column="create_year"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="createById"    column="create_by_id"    />
+        <result property="createByName"    column="create_by_name"    />
+        <result property="hybridName"    column="hybrid_name"    />
+        <result property="plantCode"    column="plant_code"    />
+        <result property="plantCodeOne"    column="plant_code_one"    />
+        <result property="plantCodeTwo"    column="plant_code_two"    />
+    </resultMap>
+
+	<select id="queryListByUserId" parameterType="map" resultMap="PlantRecordListVoResult">
+		SELECT
+			record.*,
+			hybrid.name as hybrid_name,
+			plant.code as plant_code,
+			plant.code_one as plant_code_one,
+			plant.code_two as plant_code_two
+		FROM
+			os_plant_record as record, os_hybrid as hybrid, os_plant as plant
+		WHERE
+			record.hybrid_id = hybrid.id AND record.plant_id = plant.id AND record.create_by_id = #{userId} 
+			<if test="hybridId != null">
+				<![CDATA[ AND record.hybrid_id = #{hybridId}]]>
+			</if>
+			<if test="plantId != null">
+				<![CDATA[ AND record.plant_id = #{plantId}]]>
+			</if>
+			<if test="startTime != null">
+				<![CDATA[ AND record.create_time >= #{startTime}]]>
+			</if>
+			<if test="endTime != null">
+				<![CDATA[ AND record.create_time <= #{endTime}]]>
+			</if>
+		ORDER BY record.id DESC
+	</select>
+	<select id="historyList" parameterType="map" resultMap="PlantRecordListVoResult">
+		SELECT
+			record.*,
+			hybrid.name as hybrid_name,
+			plant.code as plant_code,
+			plant.code_one as plant_code_one,
+			plant.code_two as plant_code_two
+		FROM
+			os_plant_record as record, os_hybrid as hybrid, os_plant as plant
+		WHERE
+			record.hybrid_id = hybrid.id AND record.plant_id = plant.id
+			<if test="type == 2 or type == 3">
+				<![CDATA[ AND (plant.id = #{plantId} OR plant.parent_id = #{plantId} OR (plant.id IN (SELECT plant2.parent_id from os_plant as plant2 WHERE plant2.id = #{plantId})))]]>
+			</if>
+			<if test="type == 1">
+				<![CDATA[ AND plant.id = #{plantId}]]>
+			</if>
+		ORDER BY record.create_time DESC
+	</select>
+	
+	<select id="queryList" parameterType="PlantRecord" resultMap="PlantRecordListVoResult">
+		SELECT
+			record.*,
+			hybrid.name as hybrid_name,
+			plant.code as plant_code,
+			plant.code_one as plant_code_one,
+			plant.code_two as plant_code_two
+		FROM
+			os_plant_record as record left join sys_user u on u.user_id = record.create_by_id left join sys_dept d on u.dept_id = d.dept_id, 
+	        os_hybrid as hybrid, os_plant as plant
+		WHERE
+			record.hybrid_id = hybrid.id AND record.plant_id = plant.id 
+			<if test="hybridId != null and hybridId != ''">
+				<![CDATA[ AND record.hybrid_id = #{hybridId}]]>
+			</if>
+			<if test="plantId != null and plantId != ''">
+				<![CDATA[ AND record.plant_id = #{plantId}]]>
+			</if>
+			<if test="startTime != null">
+				<![CDATA[ AND record.create_time >= #{startTime}]]>
+			</if>
+			<if test="endTime != null">
+				<![CDATA[ AND record.create_time <= #{endTime}]]>
+			</if>
+		<!-- 数据范围过滤 -->
+		${dataScope}
+		ORDER BY record.id DESC
+	</select>
+</mapper>
