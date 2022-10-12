@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="45" id="KGk-i7-Jjw" customClass="RecordDetailsCell">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="45"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="400" height="45"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="you-Mt-VLf" userLabel="背景view">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="45"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ArA-ZR-Cov" userLabel="内容view">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="45"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2GF-lh-rgv">
+                                <rect key="frame" x="16" y="12.5" width="28" height="20"/>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
+                                <color key="textColor" red="0.15686461330000001" green="0.15686029200000001" blue="0.15686112639999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="内容" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUf-MU-9Dt">
+                                <rect key="frame" x="356" y="12.5" width="28" height="20"/>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
+                                <color key="textColor" red="0.15686461330000001" green="0.15686029200000001" blue="0.15686112639999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UYI-AO-OGf" userLabel="Line">
+                                <rect key="frame" x="0.0" y="44.5" width="400" height="0.5"/>
+                                <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.5" id="8j5-s6-3ye"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="UYI-AO-OGf" secondAttribute="bottom" id="0sm-GO-HTT"/>
+                            <constraint firstItem="2GF-lh-rgv" firstAttribute="leading" secondItem="ArA-ZR-Cov" secondAttribute="leading" constant="16" id="1vO-nY-cyD"/>
+                            <constraint firstItem="tUf-MU-9Dt" firstAttribute="centerY" secondItem="ArA-ZR-Cov" secondAttribute="centerY" id="3yX-lD-FeZ"/>
+                            <constraint firstAttribute="trailing" secondItem="tUf-MU-9Dt" secondAttribute="trailing" constant="16" id="5na-h1-Mda"/>
+                            <constraint firstItem="tUf-MU-9Dt" firstAttribute="leading" secondItem="2GF-lh-rgv" secondAttribute="trailing" constant="15" id="8KN-ju-cEP"/>
+                            <constraint firstAttribute="trailing" secondItem="UYI-AO-OGf" secondAttribute="trailing" id="Tka-0U-GD0"/>
+                            <constraint firstItem="UYI-AO-OGf" firstAttribute="leading" secondItem="ArA-ZR-Cov" secondAttribute="leading" id="mB1-aQ-xef"/>
+                            <constraint firstItem="2GF-lh-rgv" firstAttribute="centerY" secondItem="ArA-ZR-Cov" secondAttribute="centerY" id="trH-HN-kBS"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="you-Mt-VLf" secondAttribute="bottom" id="96m-7T-0Fq"/>
+                    <constraint firstItem="you-Mt-VLf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="BXc-gT-zPb"/>
+                    <constraint firstAttribute="trailing" secondItem="you-Mt-VLf" secondAttribute="trailing" id="KsX-20-eWA"/>
+                    <constraint firstItem="ArA-ZR-Cov" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="cvl-1B-711"/>
+                    <constraint firstAttribute="trailing" secondItem="ArA-ZR-Cov" secondAttribute="trailing" id="nb4-Nw-bQm"/>
+                    <constraint firstItem="ArA-ZR-Cov" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="rYq-hn-25r"/>
+                    <constraint firstAttribute="bottom" secondItem="ArA-ZR-Cov" secondAttribute="bottom" id="rfp-He-Jy4"/>
+                    <constraint firstItem="you-Mt-VLf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="uhf-70-m9P"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="detailsLabel" destination="tUf-MU-9Dt" id="dvK-Nm-oHs"/>
+                <outlet property="gjBackgroundView" destination="you-Mt-VLf" id="yzm-dG-rTO"/>
+                <outlet property="lineView" destination="UYI-AO-OGf" id="31T-Uk-W0t"/>
+                <outlet property="titleLabel" destination="2GF-lh-rgv" id="iTB-c4-WYs"/>
+            </connections>
+            <point key="canvasLocation" x="195.6521739130435" y="153.01339285714286"/>
+        </tableViewCell>
+    </objects>
+</document>

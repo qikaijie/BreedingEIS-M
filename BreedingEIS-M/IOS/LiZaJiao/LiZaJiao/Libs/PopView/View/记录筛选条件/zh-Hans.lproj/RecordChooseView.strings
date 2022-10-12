@@ -1,0 +1,18 @@
+
+/* Class = "UIButton"; normalTitle = "确定"; ObjectID = "4Ek-xh-9EI"; */
+"4Ek-xh-9EI.normalTitle" = "确定";
+
+/* Class = "UILabel"; text = "2021"; ObjectID = "7FU-qj-2SD"; */
+"7FU-qj-2SD.text" = "2021";
+
+/* Class = "UILabel"; text = "暂无数据"; ObjectID = "UKR-fW-UD9"; */
+"UKR-fW-UD9.text" = "暂无数据";
+
+/* Class = "UILabel"; text = "选择年份："; ObjectID = "YRg-DF-cI5"; */
+"YRg-DF-cI5.text" = "选择年份：";
+
+/* Class = "UIButton"; normalTitle = "取消"; ObjectID = "jku-pM-eKX"; */
+"jku-pM-eKX.normalTitle" = "取消";
+
+/* Class = "UILabel"; text = "选择组合："; ObjectID = "yAj-JF-Ieu"; */
+"yAj-JF-Ieu.text" = "选择组合：";

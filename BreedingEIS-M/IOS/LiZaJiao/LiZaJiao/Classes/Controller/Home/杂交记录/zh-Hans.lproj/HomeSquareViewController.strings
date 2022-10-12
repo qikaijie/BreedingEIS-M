@@ -1,0 +1,21 @@
+
+/* Class = "UITextField"; placeholder = "请扫码选择杂交品种"; ObjectID = "HsL-hf-FFq"; */
+"HsL-hf-FFq.placeholder" = "请扫码选择杂交品种";
+
+/* Class = "UIButton"; normalTitle = "  全部  "; ObjectID = "Qh6-NO-09q"; */
+"Qh6-NO-09q.normalTitle" = "  全部  ";
+
+/* Class = "UIButton"; normalTitle = "  三天内  "; ObjectID = "SLA-s5-S6W"; */
+"SLA-s5-S6W.normalTitle" = "  三天内  ";
+
+/* Class = "UIButton"; normalTitle = " 筛选"; ObjectID = "W3b-Kq-YdW"; */
+"W3b-Kq-YdW.normalTitle" = " 筛选";
+
+/* Class = "UIButton"; normalTitle = "  一天内  "; ObjectID = "aGT-FI-F5P"; */
+"aGT-FI-F5P.normalTitle" = "  一天内  ";
+
+/* Class = "UILabel"; text = "暂无数据"; ObjectID = "ctx-BZ-pmg"; */
+"ctx-BZ-pmg.text" = "暂无数据";
+
+/* Class = "UIButton"; normalTitle = "  一个月内  "; ObjectID = "kMy-N6-Ahk"; */
+"kMy-N6-Ahk.normalTitle" = "  一个月内  ";

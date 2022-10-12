@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PJItemViewController">
+            <connections>
+                <outlet property="selectAllImage" destination="vVB-2a-tjt" id="6AW-Rp-aqL"/>
+                <outlet property="selectAllView" destination="u3G-VN-IKd" id="Mw7-aL-ILf"/>
+                <outlet property="tableView" destination="D6a-59-jsu" id="pLM-ml-AkY"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gse-e2-ZeL">
+                    <rect key="frame" x="12" y="6" width="390" height="890"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u3G-VN-IKd">
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全选" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3CL-u2-e3F">
+                                    <rect key="frame" x="12" y="12" width="28" height="20"/>
+                                    <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="14"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_checkbox_normal" translatesAutoresizingMaskIntoConstraints="NO" id="vVB-2a-tjt">
+                                    <rect key="frame" x="352" y="11" width="22" height="22"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="22" id="0pV-AP-kBM"/>
+                                        <constraint firstAttribute="height" constant="22" id="Ojz-3f-aU5"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="vVB-2a-tjt" secondAttribute="trailing" constant="16" id="EnC-EF-ek3"/>
+                                <constraint firstAttribute="height" constant="44" id="J3v-uq-d0m"/>
+                                <constraint firstItem="3CL-u2-e3F" firstAttribute="leading" secondItem="u3G-VN-IKd" secondAttribute="leading" constant="12" id="Kol-tk-SWP"/>
+                                <constraint firstItem="3CL-u2-e3F" firstAttribute="centerY" secondItem="u3G-VN-IKd" secondAttribute="centerY" id="vw2-dL-Rh3"/>
+                                <constraint firstItem="vVB-2a-tjt" firstAttribute="centerY" secondItem="u3G-VN-IKd" secondAttribute="centerY" id="xcc-DZ-JNN"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1qP-F1-jG6">
+                            <rect key="frame" x="0.0" y="44" width="390" height="0.5"/>
+                            <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="chx-bu-PkO"/>
+                            </constraints>
+                        </view>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D6a-59-jsu">
+                            <rect key="frame" x="0.0" y="44.5" width="390" height="845.5"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="u3G-VN-IKd" firstAttribute="leading" secondItem="Gse-e2-ZeL" secondAttribute="leading" id="3xG-4F-0Ko"/>
+                        <constraint firstItem="u3G-VN-IKd" firstAttribute="top" secondItem="Gse-e2-ZeL" secondAttribute="top" id="4By-QO-vFi"/>
+                        <constraint firstAttribute="trailing" secondItem="D6a-59-jsu" secondAttribute="trailing" id="9EA-Gr-co0"/>
+                        <constraint firstAttribute="bottom" secondItem="D6a-59-jsu" secondAttribute="bottom" id="EML-WM-sDp"/>
+                        <constraint firstAttribute="trailing" secondItem="1qP-F1-jG6" secondAttribute="trailing" id="ETM-OA-aO1"/>
+                        <constraint firstItem="1qP-F1-jG6" firstAttribute="top" secondItem="u3G-VN-IKd" secondAttribute="bottom" id="QsH-mD-WF3"/>
+                        <constraint firstItem="D6a-59-jsu" firstAttribute="leading" secondItem="Gse-e2-ZeL" secondAttribute="leading" id="X26-MZ-HrO"/>
+                        <constraint firstItem="1qP-F1-jG6" firstAttribute="leading" secondItem="Gse-e2-ZeL" secondAttribute="leading" id="gEN-Ip-evz"/>
+                        <constraint firstItem="D6a-59-jsu" firstAttribute="top" secondItem="1qP-F1-jG6" secondAttribute="bottom" id="hiG-6M-ax6"/>
+                        <constraint firstAttribute="trailing" secondItem="u3G-VN-IKd" secondAttribute="trailing" id="hvo-33-OU3"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Gse-e2-ZeL" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="12" id="Ick-GO-WTO"/>
+                <constraint firstAttribute="bottom" secondItem="Gse-e2-ZeL" secondAttribute="bottom" id="hGn-dW-DbT"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Gse-e2-ZeL" secondAttribute="trailing" constant="12" id="jaW-tV-Bqv"/>
+                <constraint firstItem="Gse-e2-ZeL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="6" id="kXE-Az-kFl"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="137.68115942028987" y="141.96428571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_checkbox_normal" width="200" height="200"/>
+    </resources>
+</document>

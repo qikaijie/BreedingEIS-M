@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UpdatingFilesViewController">
+            <connections>
+                <outlet property="bottomViewHeight" destination="hqD-vs-9iG" id="386-8s-atC"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37X-0M-YnK">
+                    <rect key="frame" x="0.0" y="804" width="425" height="92"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCC-b8-Aeo">
+                            <rect key="frame" x="0.0" y="0.0" width="425" height="48"/>
+                            <color key="backgroundColor" red="0.30588235289999999" green="0.66274509800000003" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="AeF-5B-fOa"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                            <state key="normal" title="确认">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="sumbitDataOnClick:" destination="-1" eventType="touchUpInside" id="XOY-QP-LWi"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="aCC-b8-Aeo" firstAttribute="leading" secondItem="37X-0M-YnK" secondAttribute="leading" id="1ic-3v-VTn"/>
+                        <constraint firstAttribute="trailing" secondItem="aCC-b8-Aeo" secondAttribute="trailing" id="db1-7I-X2E"/>
+                        <constraint firstAttribute="height" constant="92" id="hqD-vs-9iG"/>
+                        <constraint firstItem="aCC-b8-Aeo" firstAttribute="top" secondItem="37X-0M-YnK" secondAttribute="top" id="o0I-mr-iIm"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="37X-0M-YnK" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="R88-3l-8Yx"/>
+                <constraint firstAttribute="bottom" secondItem="37X-0M-YnK" secondAttribute="bottom" id="RPr-4h-dDQ"/>
+                <constraint firstAttribute="trailing" secondItem="37X-0M-YnK" secondAttribute="trailing" constant="-11" id="zHv-Cp-NYF"/>
+            </constraints>
+            <point key="canvasLocation" x="37.681159420289859" y="34.821428571428569"/>
+        </view>
+    </objects>
+</document>

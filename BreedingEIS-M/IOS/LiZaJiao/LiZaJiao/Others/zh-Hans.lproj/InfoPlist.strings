@@ -1,0 +1,19 @@
+/* 
+  InfoPlist.strings
+  LiZaJiao
+
+  Created by 顾杰 on 2022/9/23.
+  Copyright © 2022 GuJie. All rights reserved.
+*/
+
+"CFBundleDisplayName" = "云上后稷";
+
+"NFCReaderUsageDescription" = "App需要你同意使用NFC功能，用于扫描NFC标签";
+"NSBluetoothAlwaysUsageDescription" = "App会在您选择便携打印设备时,访问您的蓝牙权限";
+"NSBluetoothPeripheralUsageDescription" = "App会在您选择便携打印设备时,访问您的蓝牙权限";
+"NSCalendarsUsageDescription" = "为保证程序正常运行，请允许访问";
+"NSCameraUsageDescription" = "App会在您扫描条形码功能时，访问您的相机权限";
+"NSLocationAlwaysUsageDescription" = "为保证程序正常运行，请允许访问";
+"NSLocationWhenInUseUsageDescription" = "为保证程序正常运行，请允许访问";
+"NSMicrophoneUsageDescription" = "App需要您的同意,才能访问麦克风";
+"NSPhotoLibraryUsageDescription" = "App会在您选择条形码功能时,访问您的相册权限";

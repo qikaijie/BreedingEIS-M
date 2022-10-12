@@ -1,0 +1,24 @@
+
+/* Class = "UIButton"; normalTitle = "退出登录"; ObjectID = "Cfi-fh-WhP"; */
+"Cfi-fh-WhP.normalTitle" = "退出登录";
+
+/* Class = "UILabel"; text = "管理员"; ObjectID = "NUc-dh-aEg"; */
+"NUc-dh-aEg.text" = "管理员";
+
+/* Class = "UILabel"; text = "收藏的单株"; ObjectID = "UWf-uP-nHS"; */
+"UWf-uP-nHS.text" = "收藏的单株";
+
+/* Class = "UILabel"; text = "V1.0.6"; ObjectID = "ahH-eB-AFI"; */
+"ahH-eB-AFI.text" = "V1.0.6";
+
+/* Class = "UILabel"; text = "未知联系方式"; ObjectID = "oFx-ff-MmA"; */
+"oFx-ff-MmA.text" = "未知联系方式";
+
+/* Class = "UILabel"; text = "未知工作项目组"; ObjectID = "uDM-4G-GUs"; */
+"uDM-4G-GUs.text" = "未知工作项目组";
+
+/* Class = "UILabel"; text = "意见反馈"; ObjectID = "y3m-8L-f8b"; */
+"y3m-8L-f8b.text" = "意见反馈";
+
+/* Class = "UILabel"; text = "系统版本"; ObjectID = "yVH-mS-dtq"; */
+"yVH-mS-dtq.text" = "系统版本";

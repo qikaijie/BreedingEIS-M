@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "0"; ObjectID = "21X-dd-qY3"; */
+"21X-dd-qY3.text" = "0";
+
+/* Class = "UIButton"; normalTitle = "提交记录"; ObjectID = "A9b-2o-L9V"; */
+"A9b-2o-L9V.normalTitle" = "提交记录";
+
+/* Class = "UIButton"; normalTitle = "历史记录"; ObjectID = "Dd5-DC-jwY"; */
+"Dd5-DC-jwY.normalTitle" = "历史记录";
+
+/* Class = "UITextField"; placeholder = "请扫码选择种质品种"; ObjectID = "LYl-oU-M7e"; */
+"LYl-oU-M7e.placeholder" = "请扫码选择种质品种";
+
+/* Class = "UIButton"; normalTitle = "拍摄"; ObjectID = "ZGq-TC-MYj"; */
+"ZGq-TC-MYj.normalTitle" = "拍摄";
+
+/* Class = "UIButton"; normalTitle = "下一条"; ObjectID = "ppi-i3-5HD"; */
+"ppi-i3-5HD.normalTitle" = "下一条";
+
+/* Class = "UIButton"; normalTitle = "上一条"; ObjectID = "rEH-CR-JZ7"; */
+"rEH-CR-JZ7.normalTitle" = "上一条";

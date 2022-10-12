@@ -1,0 +1,9 @@
+
+/* Class = "UIButton"; normalTitle = "登录"; ObjectID = "H6W-Pr-f4g"; */
+"H6W-Pr-f4g.normalTitle" = "Login";
+
+/* Class = "UITextField"; placeholder = "请输入密码"; ObjectID = "d4f-Hj-hhG"; */
+"d4f-Hj-hhG.placeholder" = "Please input a password";
+
+/* Class = "UITextField"; placeholder = "请输入手机号"; ObjectID = "s5J-Iy-rvQ"; */
+"s5J-Iy-rvQ.placeholder" = "Please enter your mobile number";

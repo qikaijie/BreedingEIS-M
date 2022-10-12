@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "条码："; ObjectID = "1GX-sZ-J0S"; */
+"1GX-sZ-J0S.text" = "条码：";
+
+/* Class = "UILabel"; text = "--------"; ObjectID = "1q0-zk-Lza"; */
+"1q0-zk-Lza.text" = "--------";
+
+/* Class = "UILabel"; text = "--------"; ObjectID = "DUa-bB-ykK"; */
+"DUa-bB-ykK.text" = "--------";
+
+/* Class = "UILabel"; text = "最近记录时间："; ObjectID = "Iq9-uk-YmM"; */
+"Iq9-uk-YmM.text" = "最近记录时间：";
+
+/* Class = "UILabel"; text = "种质资源名称："; ObjectID = "QWK-do-WKo"; */
+"QWK-do-WKo.text" = "种质资源名称：";
+
+/* Class = "UILabel"; text = "2021-05-12 22:55:04"; ObjectID = "UkR-Qc-09u"; */
+"UkR-Qc-09u.text" = "2021-05-12 22:55:04";
+
+/* Class = "UIButton"; normalTitle = "打印"; ObjectID = "ySk-b7-bDG"; */
+"ySk-b7-bDG.normalTitle" = "打印";

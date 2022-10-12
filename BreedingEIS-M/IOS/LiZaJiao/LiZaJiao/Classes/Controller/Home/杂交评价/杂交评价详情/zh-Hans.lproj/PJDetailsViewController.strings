@@ -1,0 +1,21 @@
+
+/* Class = "UIButton"; normalTitle = "历史记录"; ObjectID = "50n-tm-Tpf"; */
+"50n-tm-Tpf.normalTitle" = "历史记录";
+
+/* Class = "UIButton"; normalTitle = "下一条"; ObjectID = "FNW-dg-2jL"; */
+"FNW-dg-2jL.normalTitle" = "下一条";
+
+/* Class = "UIButton"; normalTitle = "拍摄"; ObjectID = "Til-FB-hLI"; */
+"Til-FB-hLI.normalTitle" = "拍摄";
+
+/* Class = "UIButton"; normalTitle = "提交记录"; ObjectID = "VJW-S0-i2B"; */
+"VJW-S0-i2B.normalTitle" = "提交记录";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "b3M-sI-Egi"; */
+"b3M-sI-Egi.text" = "0";
+
+/* Class = "UITextField"; placeholder = "请扫码选择杂交品种"; ObjectID = "ehu-KG-gGc"; */
+"ehu-KG-gGc.placeholder" = "请扫码选择杂交品种";
+
+/* Class = "UIButton"; normalTitle = "上一条"; ObjectID = "pan-Jn-hBc"; */
+"pan-Jn-hBc.normalTitle" = "上一条";

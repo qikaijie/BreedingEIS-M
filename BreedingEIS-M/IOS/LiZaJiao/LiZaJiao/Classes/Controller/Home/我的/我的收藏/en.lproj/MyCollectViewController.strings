@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "暂无数据"; ObjectID = "30n-eb-5Wz"; */
+"30n-eb-5Wz.text" = "No data";
+
+/* Class = "UILabel"; text = "默认排序"; ObjectID = "X4S-1d-sq8"; */
+"X4S-1d-sq8.text" = "Default sorting";
+
+/* Class = "UIButton"; normalTitle = " 筛选"; ObjectID = "YNK-rC-LaR"; */
+"YNK-rC-LaR.normalTitle" = " Filter";
+
+/* Class = "UILabel"; text = "默认排序"; ObjectID = "feZ-RI-BdI"; */
+"feZ-RI-BdI.text" = "Default sorting";

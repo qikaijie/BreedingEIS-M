@@ -1,0 +1,27 @@
+
+/* Class = "UIButton"; normalTitle = "打印二维码"; ObjectID = "ILu-RN-p5y"; */
+"ILu-RN-p5y.normalTitle" = "打印二维码";
+
+/* Class = "UIButton"; normalTitle = "打印文字"; ObjectID = "idp-h7-UDQ"; */
+"idp-h7-UDQ.normalTitle" = "Print text";
+
+/* Class = "UILabel"; text = "未选择"; ObjectID = "m8p-9O-9ES"; */
+"m8p-9O-9ES.text" = "Not selected";
+
+/* Class = "UIButton"; normalTitle = "打印条码"; ObjectID = "o54-02-YcH"; */
+"o54-02-YcH.normalTitle" = "Print barcode";
+
+/* Class = "UILabel"; text = "已选设备："; ObjectID = "pwX-1x-1Sb"; */
+"pwX-1x-1Sb.text" = "Selected equipment:";
+
+/* Class = "UIButton"; normalTitle = "选择"; ObjectID = "qCa-q1-Vu9"; */
+"qCa-q1-Vu9.normalTitle" = "select";
+
+/* Class = "UIButton"; normalTitle = "打印图片"; ObjectID = "sO4-DI-vYZ"; */
+"sO4-DI-vYZ.normalTitle" = "Print pictures";
+
+/* Class = "UITextField"; placeholder = "需要打印的条码"; ObjectID = "v2i-2V-0Pt"; */
+"v2i-2V-0Pt.placeholder" = "Barcode to be printed";
+
+/* Class = "UILabel"; text = "打印标签："; ObjectID = "yct-2r-Mgb"; */
+"yct-2r-Mgb.text" = "To print labels:";

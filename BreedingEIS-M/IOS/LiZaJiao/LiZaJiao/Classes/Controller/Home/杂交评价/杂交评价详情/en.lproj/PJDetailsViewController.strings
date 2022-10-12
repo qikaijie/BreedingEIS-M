@@ -1,0 +1,21 @@
+
+/* Class = "UIButton"; normalTitle = "历史记录"; ObjectID = "50n-tm-Tpf"; */
+"50n-tm-Tpf.normalTitle" = "History record";
+
+/* Class = "UIButton"; normalTitle = "下一条"; ObjectID = "FNW-dg-2jL"; */
+"FNW-dg-2jL.normalTitle" = "Next";
+
+/* Class = "UIButton"; normalTitle = "拍摄"; ObjectID = "Til-FB-hLI"; */
+"Til-FB-hLI.normalTitle" = "Shoot";
+
+/* Class = "UIButton"; normalTitle = "提交记录"; ObjectID = "VJW-S0-i2B"; */
+"VJW-S0-i2B.normalTitle" = "Commit record";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "b3M-sI-Egi"; */
+"b3M-sI-Egi.text" = "0";
+
+/* Class = "UITextField"; placeholder = "请扫码选择杂交品种"; ObjectID = "ehu-KG-gGc"; */
+"ehu-KG-gGc.placeholder" = "Please scan the QR code to select a hybrid";
+
+/* Class = "UIButton"; normalTitle = "上一条"; ObjectID = "pan-Jn-hBc"; */
+"pan-Jn-hBc.normalTitle" = "Previous";

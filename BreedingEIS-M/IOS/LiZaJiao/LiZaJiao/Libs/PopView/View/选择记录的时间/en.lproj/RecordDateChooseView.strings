@@ -1,0 +1,6 @@
+
+/* Class = "UILabel"; text = "选择时间后刷新界面"; ObjectID = "141-Mo-5E6"; */
+"141-Mo-5E6.text" = "Refresh the interface after selecting the time";
+
+/* Class = "UILabel"; text = "选择历史记录时间："; ObjectID = "3vt-Fq-Oei"; */
+"3vt-Fq-Oei.text" = "Select history time:";

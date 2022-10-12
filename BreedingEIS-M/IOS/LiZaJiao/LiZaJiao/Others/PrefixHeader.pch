@@ -1,0 +1,140 @@
+//
+//  PrefixHeader.pch
+//  UinChat
+//
+//  Created by Apple on 2018/10/11.
+//  Copyright © 2018年 GuJie. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "Masonry.h"
+//#import "JTNavigationController.h"
+
+#import "JMWhenTapped.h"
+#import "MJRefresh.h"
+#import "SVProgressHUD.h"
+#import "MBProgressHUD.h"
+#import "UIImageView+WebCache.h"
+#import "SDWebImageDownloader.h"
+#import "SDWebImageDownloaderConfig.h"
+#import "SDWebImageDownloaderOperation.h"
+#import <UIImage+GIF.h>
+#import "YBImageBrowser.h"
+#import "YBIBVideoData.h"
+
+#import "AppDelegate.h"
+
+#import "UIView+WHC_Toast.h"
+#import "UIView+WHC_Loading.h"
+#import "UIView+WHC_ViewProperty.h"
+#import "UIScrollView+WHC_PullRefresh.h"
+
+#import "GJHttpTool.h"
+
+#import "GJImageUtils.h"
+#import "GJDateUtils.h"
+#import "GJUtils.h"
+#import "NSArray+JSONString.h"
+#import "NSDictionary+JSONString.h"
+#import "NSArray+JSON.h"
+#import "UIView+LSCore.h"
+
+#import <AxcAE_TabBar/AxcAE_TabBar.h>
+#import <Bugly/Bugly.h>
+
+#import "ChangeLanguage.h"
+
+#define LBXScan_Define_Native  //下载了native模块
+#define LBXScan_Define_ZXing   //下载了ZXing模块
+#define LBXScan_Define_ZBar   //下载了ZBar模块
+#define LBXScan_Define_UI     //下载了界面模块
+
+#define USER_NAME @"login_username"
+#define USER_PASS_WORD @"login_password"
+#define USER_TOKEN @"user_token"
+#define SEPCIES_ID @"species_id"
+
+#define LocalLanguageKey @"AppleLanguages"
+
+#define PINGJIA_LIST @"pingjia_list"
+
+#define SharedAppDelegate ((AppDelegate *)[UIApplication sharedApplication].delegate)
+#define ConnectBleSuccessNote @"ConnectBleSuccessNote"
+#define ConnectBleFailNote @"ConnectBleFailNote"
+
+#define USER_DEFAULT [NSUserDefaults standardUserDefaults]
+// 通用型设置数据
+#define kSetUserDefaults(key, value)  ([USER_DEFAULT setObject:value forKey:key],[USER_DEFAULT synchronize])
+// 通用型获取数据
+#define kUserDefaults(key) [USER_DEFAULT objectForKey:key]
+
+/**
+ 常用工具方法
+ */
+//判断字符串是否为空
+#define strIsEmpty(str) ([str isKindOfClass:[NSNull class]] || str == nil || [str length]<1 ? YES : NO )
+
+#define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
+
+//获取APP名称
+#define APP_NAME [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"]
+//获取系统版本
+#define APP_SYSTEM_VERSION [UIDevice currentDevice].systemVersion//10.0.2
+//获取项目名称及版本号（Version/Build）
+#define APP_PROJECT_NAME [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleExecutableKey]//获取项目名称
+#define APP_VERSION [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]//获取项目版本号
+#define APP_BUILD [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]//获取项目版本号
+
+// 获得屏幕尺寸
+#define SCREEN_WIDTH   [[UIScreen mainScreen] bounds].size.width
+#define SCREEN_HEIGHT  [[UIScreen mainScreen] bounds].size.height
+#define kSCREEN_WIDTH   [[UIScreen mainScreen] bounds].size.width
+#define kSCREEN_HEIGHT  [[UIScreen mainScreen] bounds].size.height
+
+// (statusbar)高度
+#define kSCREEN_STATUS_BAR_HEIGHT [[UIApplication sharedApplication] statusBarFrame]
+
+// 头部宏
+#define SafeAreaTopHeight (kSCREEN_HEIGHT == 812.0 ? 88 : 64)
+// 底部宏
+#define SafeAreaBottomHeight (kWJScreenHeight == 812.0 ? 34 : 0)
+
+//颜色
+#define kTableViewBackCoclor [UIColor colorWithRed:246/255.0 green:246/255.0 blue:246/255.0 alpha:1.0]
+#define navigationBarColor [UIColor colorWithRed:78/255.0f green:169/255.0f blue:100/255.0 alpha:1]
+#define defaultTextColor [UIColor colorWithRed:25/255.0f green:25/255.0f blue:25/255.0 alpha:1]
+
+// status bar height.
+#define  kStatusBarHeight      (IS_iPhoneX ? 44.f : 20.f)
+// Navigation bar height.
+#define  kNavigationBarHeight  44.f
+// Tabbar height.
+#define  kTabbarHeight        (IS_iPhoneX ? (49.f+34.f) : 49.f)
+// Tabbar safe bottom margin.
+#define  kTabbarSafeBottomMargin        (IS_iPhoneX ? 34.f : 0.f)
+// Status bar & navigation bar height.
+#define  kStatusBarAndNavigationBarHeight  (IS_iPhoneX ? 88.f : 64.f)
+//判断是否iPhone X
+#define IS_iPhoneX \
+({BOOL isPhoneX = NO;\
+if (@available(iOS 11.0, *)) {\
+isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;\
+}\
+(isPhoneX);})
+
+#define IPX_STATUSBAROFFSETHEIGHT   ((IS_iPhoneX) ? 24.0 : 0.0)
+#define IPX_HOMEINDICATORHEIGHT     ((IS_iPhoneX) ? 34.0 : 0.0)
+
+#define STATUSBARHEIGHT         (20.0 + IPX_STATUSBAROFFSETHEIGHT)
+#define NAVIBARHEIGHT           44.0
+#define tabBarItemHeight            ((IS_iPhoneX) ? 83.0 : 49.0)
+

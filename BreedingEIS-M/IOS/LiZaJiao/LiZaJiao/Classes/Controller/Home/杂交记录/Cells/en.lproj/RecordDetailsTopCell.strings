@@ -1,0 +1,30 @@
+
+/* Class = "UILabel"; text = "--------"; ObjectID = "92S-nk-xVX"; */
+"92S-nk-xVX.text" = "--------";
+
+/* Class = "UILabel"; text = "照片记录："; ObjectID = "Boh-Ln-A0E"; */
+"Boh-Ln-A0E.text" = "Camera record：";
+
+/* Class = "UILabel"; text = "--------"; ObjectID = "aJf-o1-WXy"; */
+"aJf-o1-WXy.text" = "--------";
+
+/* Class = "UIButton"; normalTitle = "查看"; ObjectID = "gwb-kv-Ozn"; */
+"gwb-kv-Ozn.normalTitle" = "See";
+
+/* Class = "UILabel"; text = "最近记录时间："; ObjectID = "hNB-kG-OYG"; */
+"hNB-kG-OYG.text" = "Update time：";
+
+/* Class = "UILabel"; text = "种质资源名称："; ObjectID = "i0p-Lk-IBi"; */
+"i0p-Lk-IBi.text" = "Name：";
+
+/* Class = "UILabel"; text = "条码："; ObjectID = "nbA-GU-PPO"; */
+"nbA-GU-PPO.text" = "Bar code：";
+
+/* Class = "UILabel"; text = "无"; ObjectID = "tEL-6n-vJJ"; */
+"tEL-6n-vJJ.text" = "None";
+
+/* Class = "UIButton"; normalTitle = "打印"; ObjectID = "uws-VU-77b"; */
+"uws-VU-77b.normalTitle" = "Print";
+
+/* Class = "UILabel"; text = "--------"; ObjectID = "xZH-Jb-PLd"; */
+"xZH-Jb-PLd.text" = "--------";

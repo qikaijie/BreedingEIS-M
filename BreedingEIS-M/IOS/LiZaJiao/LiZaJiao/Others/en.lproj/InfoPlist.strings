@@ -1,0 +1,20 @@
+/* 
+  InfoPlist.strings
+  LiZaJiao
+
+  Created by 顾杰 on 2022/9/23.
+  Copyright © 2022 GuJie. All rights reserved.
+*/
+
+
+"CFBundleDisplayName" = "BreedingEIS-M";
+
+"NFCReaderUsageDescription" = "App requires your consent to use the NFC function for scanning NFC tags";
+"NSBluetoothAlwaysUsageDescription" = "App will access your Bluetooth permissions when you select a portable printing device";
+"NSBluetoothPeripheralUsageDescription" = "The App will access your Bluetooth permissions when you select a portable printing device";
+"NSCalendarsUsageDescription" = "In order to ensure the normal operation of the program, please allow access";
+"NSCameraUsageDescription" = "The app will access your camera when you scan the barcode function";
+"NSLocationAlwaysUsageDescription" = "In order to ensure the normal operation of the program, please allow access";
+"NSLocationWhenInUseUsageDescription" = "In order to ensure the normal operation of the program, please allow access";
+"NSMicrophoneUsageDescription" = "App needs your consent to access the microphone";
+"NSPhotoLibraryUsageDescription" = "App will access your photo album when you select barcode function";
