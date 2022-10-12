@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.next.easynavigation.view.EasyNavigationBar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigationBar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:Easy_centerIconSize="60dp"
+    app:Easy_navigationHeight="60dp"
+    app:Easy_centerLayoutHeight="80dp"
+    app:Easy_centerLayoutBottomMargin="10dp"
+    app:Easy_centerLayoutRule="RULE_CENTER"
+    >
+</com.next.easynavigation.view.EasyNavigationBar>

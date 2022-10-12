@@ -1,0 +1,2 @@
+include ':app', ':zxinglib', ':zBarScannerLibrary',':matisse'
+//,':smartupdate'

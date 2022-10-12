@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/white_bg"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:src="@mipmap/icon_return" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="手机号验证"
+            android:textColor="#ff191919"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:visibility="gone"
+            />
+
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tl_tabs"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginLeft="46dp"
+            android:layout_marginRight="46dp"
+            android:gravity="center_vertical"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/forestgreen"
+            app:tabSelectedTextColor="@color/forestgreen"
+            app:tabTextColor="#CCCCCC" />
+
+        <ImageView
+            android:id="@+id/more_iv"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"/>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white_bg"
+        android:orientation="vertical">
+
+        <!--        <android.support.design.widget.TabLayout-->
+
+<!--        <View-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="12dp"/>-->
+
+        <!--        <android.support.v4.view.ViewPager-->
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/stroke_background_04"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

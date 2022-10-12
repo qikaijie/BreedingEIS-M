@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title_01" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/white_bg"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+
+            <ImageView
+                android:id="@+id/scanBtn"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="8dp"
+                android:src="@mipmap/icon_scan_green"
+                android:layout_alignParentRight="true" />
+
+            <RelativeLayout
+                android:layout_width="1dp"
+                android:layout_weight="1"
+                android:layout_height="38dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="8dp"
+                android:background="@color/white">
+
+                <EditText
+                    android:id="@+id/scanResultEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="26dp"
+                    android:hint="请扫码选择杂交品种"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:enabled="false"
+                    android:background="@null"/>
+
+                <ImageView
+                    android:id="@+id/cleanBtn"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="8dp"
+                    android:visibility="gone"
+                    android:src="@mipmap/icon_clean" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/searchBtn"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginRight="12dp"
+                android:src="@mipmap/icon_search"/>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:orientation="horizontal"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/titleTv01"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:gravity="center"
+                android:text="全部"
+                android:paddingRight="12dp"
+                android:paddingLeft="12dp"
+                android:layout_marginRight="8dp"
+                android:textColor="@color/white"
+                android:background="@drawable/stroke_background_08"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/titleTv02"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:gravity="center"
+                android:text="一天内"
+                android:paddingRight="12dp"
+                android:paddingLeft="12dp"
+                android:layout_marginRight="8dp"
+                android:textColor="@color/white"
+                android:background="@drawable/stroke_background_11"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/titleTv03"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:gravity="center"
+                android:text="三天内"
+                android:paddingRight="12dp"
+                android:paddingLeft="12dp"
+                android:layout_marginRight="8dp"
+                android:textColor="@color/white"
+                android:background="@drawable/stroke_background_11"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/titleTv04"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:gravity="center"
+                android:text="一个月内"
+                android:paddingRight="12dp"
+                android:paddingLeft="12dp"
+                android:layout_marginRight="8dp"
+                android:textColor="@color/white"
+                android:background="@drawable/stroke_background_11"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/shaixuanLL"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:orientation="horizontal"
+            android:layout_alignParentRight="true"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/shaixuanIV"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="4dp"
+                android:src="@mipmap/icon_shuaixuan_n" />
+
+            <TextView
+                android:id="@+id/shaixuanTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginRight="12dp"
+                android:text="筛选"
+                android:textColor="@color/gray"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<!--        <Button-->
+<!--            android:id="@+id/tianbaoBtn"-->
+<!--            android:layout_width="60dp"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginRight="44dp"-->
+<!--            android:layout_marginBottom="44dp"-->
+<!--            android:background="@drawable/tianbao_button_style"/>-->
+
+        <com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
+            android:id="@+id/refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycle_view"
+                android:background="@color/text_white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:nestedScrollingEnabled="false" >
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+        </com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>
+
+        <TextView
+            android:id="@+id/emptyTv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="暂无数据"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:textSize="16sp"
+            android:textColor="@color/gray"/>
+
+        <LinearLayout
+            android:id="@+id/tianbaoBtnView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:layout_marginRight="44dp"
+            android:layout_marginBottom="44dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/tianbaoBtn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/tianbao_button_style"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/icon_tianbao"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

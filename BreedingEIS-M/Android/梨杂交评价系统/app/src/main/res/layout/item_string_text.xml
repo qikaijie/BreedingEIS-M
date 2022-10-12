@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="48dp"
+    android:gravity="center_vertical"
+    android:paddingRight="16dp"
+    android:paddingLeft="16dp"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/tvEnjoy"
+        android:background="@color/white"
+        android:text="运动健康"
+        android:gravity="center"
+        android:textColor="#FF191919"
+        android:textSize="14sp"
+        android:layout_height="match_parent"
+        android:layout_width="0.0dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>

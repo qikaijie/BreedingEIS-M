@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 蓝色阴影 -->
+    <!--android:top 顶部的偏移量-->
+    <!--android:bottom 底部的偏移量-->
+    <!--android:left 左边的偏移量-->
+    <!--android:right 右边的偏移量-->
+    <!--值越大，消失越多-->
+    <!--color 设置阴影颜色-->
+    <item
+        android:left="0dp"
+        android:top="5dp"
+        android:bottom="0dp"
+        android:right="0dp">
+        <shape>
+            <solid android:color="#20000000" />
+            <corners
+                android:topLeftRadius="5dp"/>
+        </shape>
+    </item>
+
+    <!-- 白色前景       按钮背景 -->
+    <!--bottom 下边也有阴影，明显度为： 10dp-->
+    <!--right  右边也有阴影，明显度为： 20dp-->
+    <!--color 设置阴影背景色-->
+    <item
+        android:top="0dp"
+        android:left="5dp"
+        android:bottom="0dp"
+        android:right="0dp">
+        <shape>
+            <solid android:color="@color/white" />
+            <corners
+                android:topLeftRadius="5dp"/>
+        </shape>
+    </item>
+</layer-list>

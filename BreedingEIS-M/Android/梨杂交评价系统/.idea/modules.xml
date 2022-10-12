@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/梨杂交评价系统.iml" filepath="$PROJECT_DIR$/.idea/modules/梨杂交评价系统.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/梨杂交评价系统.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/梨杂交评价系统.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/matisse/梨杂交评价系统.matisse.iml" filepath="$PROJECT_DIR$/.idea/modules/matisse/梨杂交评价系统.matisse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/zBarScannerLibrary/梨杂交评价系统.zBarScannerLibrary.iml" filepath="$PROJECT_DIR$/.idea/modules/zBarScannerLibrary/梨杂交评价系统.zBarScannerLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/zxinglib/梨杂交评价系统.zxinglib.iml" filepath="$PROJECT_DIR$/.idea/modules/zxinglib/梨杂交评价系统.zxinglib.iml" />
+    </modules>
+  </component>
+</project>
