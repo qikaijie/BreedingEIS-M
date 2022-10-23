@@ -54,10 +54,10 @@
 	      	<router-link to="/introduction" target="_blank"><span>{{ $t('login.introduction') }}</span></router-link>
 	      	<span style="margin:0 5px;">|</span>
 	      	<router-link to="/download" target="_blank"><span>{{ $t('login.download.title') }}</span></router-link>
-	      	<span style="margin:0 5px;">|</span>
+	      	<!--<span style="margin:0 5px;">|</span>
 	      	<router-link to="/sgeneSearch" target="_blank"><span>{{ $t('login.sgeneSearch.title') }}</span></router-link>
 	      	<span style="margin:0 5px;">|</span>
-	      	<router-link to="/pearSpeciesSearch" target="_blank"><span>{{ $t('login.pearSpeciesSearch.title') }}</span></router-link>
+	      	<router-link to="/pearSpeciesSearch" target="_blank"><span>{{ $t('login.pearSpeciesSearch.title') }}</span></router-link>-->
 	      </el-form-item>
 	    </el-form>
 	    

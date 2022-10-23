@@ -1,5 +1,5 @@
 module.exports = {
-  title: '资源与育种评价信息系统',
+  title: 'BreedingEIS',
 
   /**
    * 是否系统布局配置

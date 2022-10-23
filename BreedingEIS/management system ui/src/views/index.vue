@@ -2,7 +2,7 @@
   <div class="dashboard-editor-container">
   <div style="text-align: center;padding:150px 0;">
 	<h1>{{ $t('menu.index.label.huanying') }}</h1>
-	<div><a @click="downloadIntroduction()" download="20221005 Operation manual new.pptx" style="color:#4DA964;cursor: pointer;">{{ $t('menu.index.label.xiazai') }}</a></div>
+	<div><a @click="downloadIntroduction()" download="20221005 Operation manual new.pdf" style="color:#4DA964;cursor: pointer;">{{ $t('menu.index.label.xiazai') }}</a></div>
   </div>
 <!--
     <panel-group @handleSetLineChartData="handleSetLineChartData" />

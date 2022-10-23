@@ -35,10 +35,10 @@ const messages = {
 
 const i18n = new VueI18n({
   // 设置语言 选项 en | zh
-  locale: Cookies.get('language') || 'zh',
+  locale: Cookies.get('language') || 'en',
   // 设置文本内容
   messages
 })
 
-ElementUILocale.use(setUIlocales(Cookies.get('language') || 'zh')) // element ui 切换语言
+ElementUILocale.use(setUIlocales(Cookies.get('language') || 'en')) // element ui 切换语言
 export default i18n

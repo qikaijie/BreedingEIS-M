@@ -83,7 +83,7 @@ export function download(fileName) {
 }
 //通用下载方法
 export function downloadIntroduction() {
-	window.location.href = baseURL + "/common/download?fileName=" + encodeURI("20221005 Operation manual new.pptx") + "&delete=" + false;
+	window.location.href = baseURL + "/common/download?fileName=" + encodeURI("20221005_Operation_manual_new.pdf") + "&delete=" + false;
 }
 // 字符串格式化(%s )
 export function sprintf(str) {

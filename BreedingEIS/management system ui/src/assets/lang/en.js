@@ -492,7 +492,7 @@ export default {
 	}
   },
   common: {
-	name: 'Breeding EIS',
+	name: 'BreedingEIS',
 	title: {
 		warning:'warning',
 	},
