@@ -51,10 +51,10 @@
     self.paddingTopHeight.constant = -kTabbarSafeBottomMargin-22;
     
     NSString *language = [[ChangeLanguage sharedInstance] currentLanguage];
-    if ([language isEqualToString:@"en"]) {
-        [self.changeLauguageButton setTitle:@"Lauguage：English" forState:UIControlStateNormal];
-    }else{
+    if ([language isEqualToString:@"zh-Hans"]) {
         [self.changeLauguageButton setTitle:@"语言：中文" forState:UIControlStateNormal];
+    }else{
+        [self.changeLauguageButton setTitle:@"Lauguage：English" forState:UIControlStateNormal];
     }
     
     self.titleOne.image = [UIImage imageNamed:NSLocalizedString(@"assets_text_yshj", nil)];
@@ -154,8 +154,6 @@
         }
     }];
 }
-
-
 
 //登录
 - (IBAction)loginClick:(UIButton *)sender {

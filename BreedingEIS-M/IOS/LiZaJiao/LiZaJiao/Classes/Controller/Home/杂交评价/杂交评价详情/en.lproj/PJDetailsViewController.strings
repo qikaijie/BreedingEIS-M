@@ -6,7 +6,7 @@
 "FNW-dg-2jL.normalTitle" = "Next";
 
 /* Class = "UIButton"; normalTitle = "拍摄"; ObjectID = "Til-FB-hLI"; */
-"Til-FB-hLI.normalTitle" = "Shoot";
+"Til-FB-hLI.normalTitle" = "Capture";
 
 /* Class = "UIButton"; normalTitle = "提交记录"; ObjectID = "VJW-S0-i2B"; */
 "VJW-S0-i2B.normalTitle" = "Commit record";
