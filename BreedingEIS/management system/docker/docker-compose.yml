@@ -1,0 +1,61 @@
+version : '3.3'
+services:
+  yuzhong-mysql:
+    container_name: yuzhong-mysql
+    image: mysql:5.7
+    build:
+      # 指定上下文目录，eg：当前compose文件所在目录（docker）下的mysql目录 
+      # 这里是 docker/mysql 找到就会执行前面编写的mysql的dockerfile 下同
+      context: ./mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      # 挂载映射mysql数据配置到宿主机目录 防止容器异常或重启导致数据丢失
+      - /home/mysql/conf:/etc/mysql/conf.d
+      - /home/mysql/data:/var/lib/mysql
+    command: [
+      # mysql初始化的一些参数，这里我以为会在执行的时候自动创建数据库但是并没有，还是需要自己建库 
+      'mysqld',
+      '--innodb-buffer-pool-size=80M',
+      '--character-set-server=utf8mb4',
+      '--collation-server=utf8mb4_unicode_ci',
+      '--default-time-zone=+8:00',
+      '--lower-case-table-names=1'
+    ]
+    environment:
+      MYSQL_DATABASE: 'liuxn_yuzhong'
+      MYSQL_ROOT_PASSWORD: root123
+  yuzhong-redis:
+    container_name: yuzhong-redis
+    image: redis
+    build:
+      context: ./redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis/conf/redis.conf:/home/yuzhong/redis/redis.conf
+      - ./redis/data:/data
+    command: redis-server /home/yuzhong/redis/redis.conf
+  yuzhong-nginx:
+    container_name: yuzhong-nginx
+    image: nginx
+    build:
+      context: ./nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/html/dist:/home/yuzhong/projects/yuzhong-ui
+      - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/logs:/var/log/nginx
+      - ./nginx/conf.d:/etc/nginx/conf.d
+  yuzhong-admin:
+    container_name: yuzhong-admin
+    build:
+      context: ./yuzhong
+      dockerfile: dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - yuzhong-mysql
+      - yuzhong-redis
+      - yuzhong-nginx

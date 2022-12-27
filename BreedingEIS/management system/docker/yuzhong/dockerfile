@@ -1,0 +1,17 @@
+# 基础镜像
+FROM  java:8
+# author
+MAINTAINER liuxn
+
+EXPOSE 8080
+
+# 挂载目录
+VOLUME /home/yuzhong
+# 创建目录
+RUN mkdir -p /home/yuzhong
+# 指定路径
+WORKDIR /home/yuzhong
+# 复制jar文件到路径
+COPY ./jar/yuzhong.jar /home/yuzhong/yuzhong.jar
+# 启动认证服务
+ENTRYPOINT ["java","-jar","yuzhong.jar"]

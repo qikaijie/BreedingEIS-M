@@ -1,0 +1,8 @@
+# 基础镜像
+FROM mysql:5.7
+# author
+MAINTAINER liuxn
+
+# 执行sql脚本 脚本请提前放置于此
+# ./db/*.sql指的是当前dokerfile所在目录的上一层级（mysql）下的db目录
+ADD ./db/*.sql /docker-entrypoint-initdb.d/
